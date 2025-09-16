@@ -1,0 +1,11 @@
+---
+title: "Data import"
+output: github_document
+---
+
+```{r setup}
+library(tidyverse)
+```
+
+
+#read in some data
