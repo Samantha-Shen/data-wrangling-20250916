@@ -71,6 +71,19 @@ pulse_df
 ```
 
 
+#comparison with Base R
+
+what about `read.csv` ...?
+
+```{r}
+litters_base = read.csv("./data/FAS_litters.csv")
+litters_reader = read_csv("./data/FAS_litters.csv")
+
+litters_base
+litters_reader
+```
+
+
 
 
 
