@@ -15,3 +15,97 @@ litters_df= read_csv("./data/FAS_litters.csv")
 litters_df= janitor::clean_names(litters_df)
 litters_df
 ```
+
+
+## 'select'
+
+Choose some columns and not others
+
+```{r}
+select(litters_df, group, gd0_weight)
+```
+
+```{r}
+select(litters_df, group, gd0_weight:gd_of_birth)
+```
+（':' 从A-B列）
+
+
+```{r}
+select(litters_df, -litter_number)
+```
+（‘-’ 删去某一列）
+
+
+
+Rename columns
+
+```{r}
+select(litters_df,GROUP = group, LITTer_NUmBer = litter_number)
+```
+（只显示所选列并重命名）
+
+
+```{r}
+rename(litters_df, GROUP = group, LITTer_NUmBer = litter_number)
+```
+（显示所有内容，并重命名所选列）
+
+
+
+Select helpers
+
+```{r}
+select(litters_df, starts_with("gd"))
+```
+
+```{r}
+select(litters_df, litter_number, everything())
+```
+（所选列会显示在第一列，其余所有内容显示在后）
+
+
+```{r}
+relocate(litters_df, litter_number)
+```
+（将选择的列locate到第一列）
+
+
+
+
+## 'filter'
+
+```{r}
+filter(litters_df, gd0_weight<22)
+```
+
+```{r}
+filter(litters_df, gd0_weight>=22)
+```
+
+```{r}
+filter(litters_df, gd_of_birth ==20)
+```
+
+```{r}
+filter(litters_df, !gd_of_birth ==20)
+```
+(！除了...)
+
+
+
+```{r}
+filter(litters_df, gd0_weight>=22, gd_of_birth ==20)
+```
+
+
+```{r}
+filter(litters_df, group == "Con7")
+```
+
+```{r}
+filter(litters_df, group %in% c("Con7", "Mod8") )
+```
+
+
+
